@@ -13,7 +13,7 @@ function UserDashboard() {
 	{
 		label:"Pay Request",
 		value:"pay request",
-		url:'/'
+		url:'/payout-request'
 	}
 	]
 	return (

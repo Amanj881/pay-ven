@@ -1,39 +1,11 @@
-import React,{useEffect,useState} from 'react'
+import React from 'react'
 import {Link} from "react-router-dom";
-import Loader from '../components/Loader/Loader.js'
 
-function Vendor() {
-
-  const [loader, setLoader] = useState(true);
-
-  useEffect(() => {
-
-    new Promise((resolve) => {
-
-        setTimeout(() => {
-        setLoader(!loader);
-        }, 1000)
-    })
-  }, [])
-
+function PayOutRequest() {
 	return (
 		<div className="lg:w-2/3 lg:mx-auto  md:px-16 px-0 mt-12  flex flex-col">
-     <ul className=" flex  flex-wrap  py-1 text-gray-500 text-sm lg:text-base space-x-1"
-    >
-      <li className="py-4">
-        <Link to="/add-vendor" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">ADD Vendor  </Link>
-      </li >
-      <li className="py-4">
-        <Link to="/kyc" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">Wallet Amount  </Link>
-      </li >
-      <li className="py-4">
-        <Link to="/pay-out-request" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">Pending Payout</Link>
-      </li> 
-       <li className="py-4">
-        <Link to="/pay-in" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">Approved Payout</Link>
-      </li>              
-  </ul>
-			<span className="text-center font-bold text-2xl mb-8">VENDORS</span>
+     		<Link to="/add-request" className="w-32 font-semibold p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">Add Request</Link>
+		<span className="text-center font-bold text-2xl mb-8 uppercase">Payout Request</span>
   <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
       <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -109,4 +81,4 @@ function Vendor() {
 	)
 }
 
-export default Vendor
+export default PayOutRequest
