@@ -7,8 +7,7 @@ import UserRoute from './user/routes'
 function App() {
   return (
     <>
-{  /*  <AdminRoute />
-    */}    <UserRoute />
+    <UserRoute />
     </>
   );
 }
