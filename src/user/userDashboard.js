@@ -1,7 +1,7 @@
 import React from 'react'
 import Dash from '../components/Dashboard/Dashboard'
 import Vendor from './vendor'
-import './styles/main.css';
+import '../styles/main.css';
 
 function UserDashboard() {
 
