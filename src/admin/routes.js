@@ -10,24 +10,25 @@ import Kyc from './kyc'
 import Por from './por'
 import PayIn from './payIn'
 import AddStaff from './addStaff'
+import PrivateRoute from '../utils/PrivateRoute'
 
 function Routes() {
 	return (
-		 <BrowserRouter>
-      <div classname="w-full flex flex-row justify-between">
-        <Dashboard />
+		 <BrowserRouter basename={'/reactest/'} >
+      
       <Switch>
-        <Route path="/user-organisation" component={UserOrganisation} />
-        <Route path="/staff" component={Staff} />
-        <Route path="/vendors" component={Vendor} />
-        <Route path="/add-user" component={AddUser} />
-        <Route path="/kyc" component={Kyc} />
-        <Route path="/pay-out-request" component={Por} />
-        <Route path="/pay-in" component={PayIn} />
-        <Route path="/add-staff" component={AddStaff} />
+        <Route path="/admin-login"  component={AdminLogin}/>
+        <PrivateRoute path="/user-organisation" component={UserOrganisation} />
+        <PrivateRoute path="/staff" component={Staff} />
+        <PrivateRoute path="/vendors" component={Vendor} />
+        <PrivateRoute path="/add-user" component={AddUser} />
+        <PrivateRoute path="/kyc" component={Kyc} />
+        <PrivateRoute path="/pay-out-request" component={Por} />
+        <PrivateRoute path="/pay-in" component={PayIn} />
+        <PrivateRoute path="/add-staff" component={AddStaff} />
+        <PrivateRoute path="/admin-dashboard" component={Dashboard} />
 
       </Switch>
-      </div>
     </BrowserRouter>
 	)
 }

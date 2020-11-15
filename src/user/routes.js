@@ -8,26 +8,27 @@ import PayoutRequest from './payoutRequest'
 import { BrowserRouter, Route, Link,Switch } from "react-router-dom";
 import AddRequest from './addRequest'
 import NotFound from '../components/notFound'
+import PublicRoute from '../utils/PublicRoute'
+import AdminLogin from '../admin/adminLogin'
+
 function Routes() {
 
 	
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
-		<BrowserRouter>
-
-		<Dash />
+		<BrowserRouter basename={'/reactest'}>
+		
 			<Switch>
-			<Route path="/" exact component={Vendor} />
-			<Route path="/terms-conditions" exact component={Terms} />
-			<Route path="/vendors" exact component={Vendor} />
-			<Route path="/dashboard" exact component={Dash} />
-			<Route path="/add-vendor" exact component={AddVendor} />
-			<Route path="/payout-request" exact component={PayoutRequest} />
-			<Route path="/add-request" exact component={AddRequest} />
-			<Route path="*" component={NotFound} />
+			<Route path="/" exact component={Login} />
+			 <Route path="/admin-login"  component={AdminLogin}/>
+			<PublicRoute path="/vendors" exact component={Vendor} />
+			<PublicRoute path="/dashboard" exact component={Dash} />
+			<PublicRoute path="/add-vendor" exact component={AddVendor} />
+			<PublicRoute path="/" exact component={Vendor} />
+			<PublicRoute path="/terms-conditions" exact component={Terms} />
+			<PublicRoute path="/payout-request" exact component={PayoutRequest} />
+			<PublicRoute path="/add-request" exact component={AddRequest} />
 			</Switch>
 		</BrowserRouter>
-		</Suspense>
 	)
 }
 

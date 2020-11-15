@@ -1,58 +1,115 @@
-import React from 'react'
+import React,{useState} from 'react'
+import TextInput from "../components/TextInput/TextInput";
+import TextPassword from "../components/Password/Password";
+import axios from '../http-common';
+import Button from "../components/Button/Button";
+import { useHistory } from "react-router-dom";
+import { setToken } from '../utils/Common';
+// import axios from "axios";
 
 function AdminLogin() {
-	return (
-		
-<div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-  <div className="max-w-md w-full">
-    <div>
-      <img className="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/v1/workflow-mark-on-white.svg" alt="Workflow" />
-      <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-        Sign in to your account
-      </h2>
-     
-    </div>
-    <form className="mt-8" action="#" method="POST">
-      <input type="hidden" name="remember" value="true"/>
-      <div className="rounded-md shadow-sm">
-        <div>
-          <input aria-label="Email address" name="email" type="email" required className="appearance-none rounded-none h-12 relative block w-full px-3 py-2 border border-blue-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5" placeholder="Email address" />
+
+  const validate = (value) => {
+  const error={};
+  if(!value.email)
+  {
+    error.email = "Please insert email"
+  }
+  if(!value.password)
+  {
+    error.password = "Please insert password"
+  }
+  return(error);
+  }
+  const history = useHistory();
+  const[email,setEmail]=useState();
+  const[password,setPassword]=useState();
+  const [signedIn, setSignedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState('');
+
+  const handleSubmit = (e) =>{
+  if(e)
+   e.preventDefault();
+ let payload = {
+     email: email,
+     password: password,
+   };
+   console.log("pay",payload)
+      let err = validate(payload);
+      setErrors(err);
+         setLoading(true);
+    axios.post('/login',payload).then((res)=>{
+      // console.log("response",response.data);
+      console.log("res",res);
+      setToken(res.data.access_token);
+
+      history.push("/admin-dashboard")
+    }).catch(
+        error => { console.log(error.response) }
+    );
+
+
+  
+
+  //   axios.post('/admin/login',payload).
+  //  then((res)=>{
+  //     setToken(res.data.access_token);
+
+  // history.push("/admin-dashboard")
+  //  }).catch(e => {
+  //     setErrors(e)
+  //   });
+}
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+          <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
+            Admin Login
+          </h2>
         </div>
-        <div className="-mt-px">
-          <input aria-label="Password" name="password" type="password" required className="appearance-none rounded-none h-12 relative block w-full px-3 py-2 border border-blue-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5" placeholder="Password" />
+        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <form onSubmit={handleSubmit} autoComplete="new-password">
+              <TextInput
+                  id="email"
+                  labelText="Email"
+                  onChange={(e => setEmail(e.target.value))}
+                  value={email}
+                  name="email"
+                  invalid={errors.email}
+                  invalidText={errors.email}
+          
+              />
+
+              <div className="mt-6">
+                <TextPassword
+                  id="password"
+          labelText="Password"
+          onChange={e => setPassword(e.target.value)}
+          value={password}
+          name="password"
+          autoComplete="new-password"
+                invalid={errors.password}
+                    invalidText={errors.password}
+
+                />
+              </div>
+
+                
+              <div className="mt-6">
+                <span className="block w-full rounded-md shadow-sm">
+                  <Button type="submit" width="full" 
+ >
+                    Sign in
+                  </Button>
+                </span>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-
-      <div className="mt-6 flex items-center justify-between">
-        <div className="flex items-center">
-          <input id="remember_me" type="checkbox" className="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" />
-          <label for="remember_me" className="ml-2 block text-sm leading-5 text-gray-900">
-            Remember me
-          </label>
-        </div>
-
-        <div className="text-sm leading-5">
-          <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-            Forgot your password?
-          </a>
-        </div>
-      </div>
-
-      <div className="mt-6">
-        <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-          <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-            <svg className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400 transition ease-in-out duration-150" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
-            </svg>
-          </span>
-          Sign in
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-	)
+  )
 }
 
 export default AdminLogin

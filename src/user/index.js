@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
 import TextInput from "../components/TextInput/TextInput";
 import TextPassword from "../components/Password/Password";
-// import axios from '../http-common';
+import axios from '../http-common';
 import Button from "../components/Button/Button";
-import { useHistory } from "react-router-dom";
+import { useHistory,Link } from "react-router-dom";
 
 function Index() {
 
@@ -27,30 +27,32 @@ function Index() {
 	const [errors, setErrors] = useState('');
 
 	const handleSubmit =async (e) =>{
-	// if(e)
-	// 	e.preventDefault();
+	if(e)
+		e.preventDefault();
 
 
-	// let payload = {
-	// 		email: email,
-	// 		password: password,
-	// 	};
- //      let err = validate(payload);
- //      setErrors(err);
- //         setLoading(true);
+	let payload = {
+			email: email,
+			password: password,
+		};
+      let err = validate(payload);
+      setErrors(err);
+         setLoading(true);
 
-	// 	await axios.post('/auth/login',payload).
-	// 	then((res)=>{
+		await axios.post('/auth/login',payload).
+		then((res)=>{
+			console.log(res);
+      // setToken(res.data.access_token);
 
- //      setToken(res.data.access_token);
-
-	// 		history.push("/dashboard")
-	// 	}).catch(e => {
- //      setErrors(e)
- //    });
+	history.push("/dashboard")
+		}).catch(e => {
+      setErrors(e)
+    });
 }
 	return (
 		<div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+		        <Link to="/admin-login" className="w-32 p-2  rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">Admin</Link>
+
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
             User Login

@@ -9,7 +9,7 @@ function UserOrg() {
    <ul className=" flex  flex-wrap  py-1 text-gray-500 text-sm lg:text-base space-x-1"
     >
       <li className="py-4">
-        <Link to="/add-user" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs">ADD STAFF  </Link>
+        <Link to="/add-user" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">ADD user  </Link>
       </li >
       <li className="py-4">
         <Link to="/kyc" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">Kyc Approved  </Link>
