@@ -41,7 +41,7 @@ function Index() {
 
      AuthService.userLogin(email, password).then(
         () => {
-          history.push("/user-dashboard");
+          history.push("/user-vendors");
           window.location.reload();
         })
 	// 	await axios.post('/user/login',payload).

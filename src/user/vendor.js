@@ -21,16 +21,16 @@ function Vendor() {
      <ul className=" flex  flex-wrap  py-1 text-gray-500 text-sm lg:text-base space-x-1"
     >
       <li className="py-4">
-        <Link to="/add-vendor" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">ADD Vendor  </Link>
+        <Link to="user/add-vendor" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">ADD Vendor  </Link>
       </li >
       <li className="py-4">
-        <Link to="/kyc" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">Wallet Amount  </Link>
+        <Link to="user/kyc" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">Wallet Amount  </Link>
       </li >
       <li className="py-4">
-        <Link to="/pay-out-request" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">Pending Payout</Link>
+        <Link to="user/pay-out-request" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">Pending Payout</Link>
       </li> 
        <li className="py-4">
-        <Link to="/pay-in" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">Approved Payout</Link>
+        <Link to="user/pay-in" className="p-2 mx-2 rounded-lg border-2 border-teal-400 text-gray-800 shadow-xs uppercase">Approved Payout</Link>
       </li>              
   </ul>
 			<span className="text-center font-bold text-2xl mb-8">VENDORS</span>

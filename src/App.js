@@ -40,11 +40,11 @@ function App() {
         <PrivateRoute path="/admin-dashboard" component={Dashboard} />
     		<PublicRoute path="/vendors" exact component={Vendor} />
     		<PublicRoute path="/user-dashboard" exact component={Dash} />
-    		<PublicRoute path="/add-vendor" exact component={AddVendor} />
+    		<PublicRoute path="user/add-vendor" exact component={AddVendor} />
     		<PublicRoute path="/" exact component={Vendor} />
     		<PublicRoute path="/terms-conditions" exact component={Terms} />
-    		<PublicRoute path="/payout-request" exact component={PayoutRequest} />
-    		<PublicRoute path="/add-request" exact component={AddRequest} />
+    		<PublicRoute path="/user/payout-request" exact component={PayoutRequest} />
+    		<PublicRoute path="/user/add-request" exact component={AddRequest} />
             <PublicRoute path="/user-vendors" component={Vendor} />
 
       </Switch>

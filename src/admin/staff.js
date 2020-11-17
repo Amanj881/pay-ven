@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 function Staff() {
 	return (
-		<div className="md:w-2/3 lg:mx-auto px-0 md:px-16 px-0 w-full  mt-12  flex flex-col ">
+		<div className=" lg:mx-auto px-0 md:px-16 px-0 w-full  mt-12  flex flex-col ">
   			<Link to="/add-staff" className=" w-32 text-center bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">ADD STAFF 	</Link>
 
   <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

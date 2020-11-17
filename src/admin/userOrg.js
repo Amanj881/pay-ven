@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 // import axios from '../http-common';
 import Table from "../components/Table/Table.js";
 import UserService from "../services/user-service";
+import Header from '../components/header'
 
 function UserOrg() {
 
@@ -51,8 +52,8 @@ const Schema = {
   
 
 	return (
-		
-<div className="lg:w-2/3 lg:mx-auto  md:px-16 px-0  mt-12  flex flex-col">
+
+<div className="lg:mx-auto  md:px-16 py-6">
    <ul className=" flex  flex-wrap  py-1 text-gray-500 text-sm lg:text-base space-x-1"
     >
       <li className="py-4">
