@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { getToken } from './Common';
+import AuthService from "./auth-service";
 import Dash from '../user/userDashboard'
 
 // handle the public routes
@@ -10,7 +10,7 @@ function PublicRoute({ component: Component, ...rest }) {
   	<Dash />
     <Route
       {...rest}
-      render={(props) => getToken() ? <Component {...props} /> : <Redirect to={{ pathname: '/' }} />}
+      render={(props) =>  AuthService.getCurrentUser() ? <Component {...props} /> : <Redirect to={{ pathname: '/' }} />}
     />
     </> 
   )

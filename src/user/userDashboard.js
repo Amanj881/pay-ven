@@ -8,7 +8,7 @@ function UserDashboard() {
 	{
 		value:"vendor",
 		label:"Vendor",
-		url:"/vendors"
+		url:"/user-vendors"
 	},
 	{
 		label:"Pay Request",

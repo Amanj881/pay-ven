@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import TextInput from "../components/TextInput/TextInput";
 import TextPassword from "../components/Password/Password";
-import axios from '../http-common';
+import AuthService from "../services/auth-service";
 import Button from "../components/Button/Button";
 import { useHistory,Link } from "react-router-dom";
 
@@ -39,15 +39,20 @@ function Index() {
       setErrors(err);
          setLoading(true);
 
-		await axios.post('/auth/login',payload).
-		then((res)=>{
-			console.log(res);
-      // setToken(res.data.access_token);
+     AuthService.userLogin(email, password).then(
+        () => {
+          history.push("/user-dashboard");
+          window.location.reload();
+        })
+	// 	await axios.post('/user/login',payload).
+	// 	then((res)=>{
+	// 		console.log(res);
+ //      setToken(res.data.access_token,res.data.user.email);
 
-	history.push("/dashboard")
-		}).catch(e => {
-      setErrors(e)
-    });
+	// history.push("/user-dashboard")
+	// 	}).catch(e => {
+ //      setErrors(e)
+ //    });
 }
 	return (
 		<div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">

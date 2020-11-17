@@ -19,47 +19,47 @@ function AddUser() {
   const [street_address, setStreetAddress] = useState('')
   const [loader, setLoader] = useState(true);
 
-//   const validate = (value) => {
-//   const errors = {}
+  const validate = (value) => {
+  const errors = {}
 
-//   if(!value.name)
-//   {
-//     errors.name="Name field is Required"
-//   }
-//   if(!value.address)
-//   {
-//     errors.address="address field is Required"
+  if(!value.name)
+  {
+    errors.name="Name field is Required"
+  }
+  if(!value.address)
+  {
+    errors.address="address field is Required"
 
-//   }
-//    if(!value.mobile)
-//   {
-//     errors.mobile="mobile field is Required"
-//   }
-//   if(!value.email)
-//   {
-//     errors.email="email field is Required"
+  }
+   if(!value.mobile)
+  {
+    errors.mobile="mobile field is Required"
+  }
+  if(!value.email)
+  {
+    errors.email="email field is Required"
 
-//   }
-//    if(!value.password)
-//   {
-//     errors.password="password field is Required"
-//   }
-//   if(!value.gst_number)
-//   {
-//     errors.gst_number="gst_number field is Required"
+  }
+   if(!value.password)
+  {
+    errors.password="password field is Required"
+  }
+  if(!value.gst_number)
+  {
+    errors.gst_number="gst_number field is Required"
 
-//   }
-//    if(!value.nature_of_business)
-//   {
-//     errors.nature_of_business="nature_of_business field is Required"
-//   }
-//   if(!value.street_address)
-//   {
-//     errors.street_address="street_address field is Required"
+  }
+   if(!value.nature_of_business)
+  {
+    errors.nature_of_business="nature_of_business field is Required"
+  }
+  if(!value.street_address)
+  {
+    errors.street_address="street_address field is Required"
 
-//   }
-//   return(errors);
-// } 
+  }
+  return(errors);
+} 
   const history = useHistory();
 
 
@@ -88,10 +88,10 @@ function AddUser() {
 
     }
     console.log(payload);
-      // let errors = validate(payload);
-      // setErrors(errors);
+      let errors = validate(payload);
+      setErrors(errors);
 
-     axios.post('/addUser',payload).then((res)=>{
+     axios.post('admin/addUser',payload).then((res)=>{
       // console.log("response",response.data);
       console.log("res",res);
 

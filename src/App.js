@@ -10,7 +10,7 @@ import AddVendor from './user/addVendor'
 import PayoutRequest from './user/payoutRequest'
 import AddRequest from './user/addRequest'
 import NotFound from './components/notFound'
-import PublicRoute from './utils/PublicRoute'
+import PublicRoute from './services/PublicRoute'
 import AdminLogin from './admin/adminLogin'
 import Dashboard from './admin/dashboard'
 import UserOrganisation from './admin/userOrg'
@@ -21,7 +21,7 @@ import Kyc from './admin/kyc'
 import Por from './admin/por'
 import PayIn from './admin/payIn'
 import AddStaff from './admin/addStaff'
-import PrivateRoute from './utils/PrivateRoute'
+import PrivateRoute from './services/PrivateRoute'
 
 function App() {
   return (
@@ -39,12 +39,14 @@ function App() {
         <PrivateRoute path="/add-staff" component={AddStaff} />
         <PrivateRoute path="/admin-dashboard" component={Dashboard} />
     		<PublicRoute path="/vendors" exact component={Vendor} />
-    		<PublicRoute path="/dashboard" exact component={Dash} />
+    		<PublicRoute path="/user-dashboard" exact component={Dash} />
     		<PublicRoute path="/add-vendor" exact component={AddVendor} />
     		<PublicRoute path="/" exact component={Vendor} />
     		<PublicRoute path="/terms-conditions" exact component={Terms} />
     		<PublicRoute path="/payout-request" exact component={PayoutRequest} />
     		<PublicRoute path="/add-request" exact component={AddRequest} />
+            <PublicRoute path="/user-vendors" component={Vendor} />
+
       </Switch>
     </BrowserRouter>
   );

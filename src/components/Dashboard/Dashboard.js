@@ -1,15 +1,16 @@
 import React from 'react'
 import { BrowserRouter, Route, Link,Switch } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import {removeUser} from '../../utils/Common';
 import Avatar from 'react-avatar';
+import AuthService from "../../services/auth-service";
 
 function Dashboard({options,DashName}) {
   
   	const history = useHistory();
 
 	 const logout = () => {
-  		removeUser();
+  		    AuthService.logout();
+
    		history.push('/admin-login');
 }
 

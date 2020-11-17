@@ -8,8 +8,9 @@ function TableBody({headers,rows}) {
 
 	function buildRow(row,headers)
 	{
+		console.log("object")
 		return (
-			<tr key = {row.uuid}>
+			<tr key = {row.Id}>
 			{ headers.map((header,index)=>{
 				 console.log("header",row[header])
 				return <td key={index} className="text-center py-8 text-sm leading-5 font-medium text-gray-900 border border-l-2 px-4 ">{row[header]}</td>

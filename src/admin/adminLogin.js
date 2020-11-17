@@ -4,11 +4,12 @@ import TextPassword from "../components/Password/Password";
 import axios from '../http-common';
 import Button from "../components/Button/Button";
 import { useHistory } from "react-router-dom";
-import { setToken } from '../utils/Common';
-// import axios from "axios";
+// import { setAdminToken } from '../utils/Common';
+import AuthService from "../services/auth-service";
 
 function AdminLogin() {
 
+const [loggedIn, setLoggedIn] = useState(false)
   const validate = (value) => {
   const error={};
   if(!value.email)
@@ -38,16 +39,22 @@ function AdminLogin() {
    console.log("pay",payload)
       let err = validate(payload);
       setErrors(err);
-         setLoading(true);
-    axios.post('/login',payload).then((res)=>{
-      // console.log("response",response.data);
-      console.log("res",res);
-      setToken(res.data.access_token);
+    //      setLoading(true);
+     AuthService.login(email, password).then(
+        () => {
+          history.push("/user-organisation");
+          window.location.reload();
+        })
+    // axios.post('login',payload).then((res)=>{
+    //   // console.log("response",response.data);
+    //   console.log("res",res);
+    //   setAdminToken(res.data.access_token,res.data.user.email);
+    //   setLoggedIn(!loggedIn);
 
-      history.push("/admin-dashboard")
-    }).catch(
-        error => { console.log(error.response) }
-    );
+    //   history.push("/user-organisation")
+    // }).catch(
+    //     error => { console.log(error.response) }
+    // );
 
 
   
