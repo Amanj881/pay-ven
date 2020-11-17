@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import TextInput from "../components/TextInput/TextInput";
 import Btn from '../components/Button/Button';
-// import axios from '../http-common';
+import axios from '../http-common';
 import Select from '../components/SelectInput/SelectInput'
 import Loader from '../components/Loader/Loader.js'
 import Upload from '../components/UploadFile/UploadFile'
