@@ -17,7 +17,7 @@ function UserDashboard() {
 	}
 	]
 	return (
-		<div>
+		<div className="w-1/6">
 			<Dash options={options} DashName="User Dashboard"/>
 		</div>
 	)
