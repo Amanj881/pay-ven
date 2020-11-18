@@ -27,17 +27,20 @@ function App() {
   return (
     <BrowserRouter basename={'/reactest/'} >
       <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/admin-login"  component={AdminLogin}/>
-        <PrivateRoute path="/user-organisation" component={UserOrganisation} />
-        <PrivateRoute path="/staff" component={Staff} />
-        <PrivateRoute path="/vendors" component={AdminVendor} />
-        <PrivateRoute path="/add-user" component={AddUser} />
-        <PrivateRoute path="/kyc" component={Kyc} />
-        <PrivateRoute path="/pay-out-request" component={Por} />
-        <PrivateRoute path="/pay-in" component={PayIn} />
-        <PrivateRoute path="/add-staff" component={AddStaff} />
-        <PrivateRoute path="/admin-dashboard" component={Dashboard} />
+        <Route path="/admin-login" exact  component={AdminLogin}/>
+        <PrivateRoute path="/user-organisation" exact component={UserOrganisation} />
+        <PrivateRoute path="/staff"exact  component={Staff} />
+        <PrivateRoute path="/vendors" exact component={AdminVendor} />
+        <PrivateRoute path="/add-user"exact  component={AddUser} />
+        <PrivateRoute path="/kyc" exact component={Kyc} />
+        <PrivateRoute path="/pay-out-request"exact  component={Por} />
+        <PrivateRoute path="/pay-in" exact component={PayIn} />
+        <PrivateRoute path="/add-staff"exact  component={AddStaff} />
+        <PrivateRoute path="/admin-dashboard" exact component={Dashboard} />
+        </Switch>
+        <Switch>
+                <Route path="/" exact component={Login} />
+
     		<PublicRoute path="/vendors" exact component={Vendor} />
     		<PublicRoute path="/user-dashboard" exact component={Dash} />
     		<PublicRoute path="user/add-vendor" exact component={AddVendor} />

@@ -8,7 +8,7 @@ import Header from '../components/header'
 function UserOrg() {
 
   const [data, setData] = useState();
-
+const [loading, setLoading] = useState(true)
   useEffect(() => {
      getUser()
   }, [])
@@ -22,8 +22,8 @@ const Schema = {
   "Wallet Amount":"",
   "Actions":""
   }
-    const getUser = () => {
-     UserService.getAdminBoard().then((result) => {
+    const getUser =async () => {
+     await UserService.getAdminBoard().then((result) => {
       let res = result.data.map((e)=>{
        return{ 
                 Id:e.id,

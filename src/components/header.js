@@ -4,13 +4,19 @@ import { useHistory } from "react-router-dom";
 import { BrowserRouter, Route, Link,Switch } from "react-router-dom";
 
 function Header() {
-	  	const history = useHistory();
+	const history = useHistory();
+    const currentUser = AuthService.getCurrentUser()
+	const [dropdownOpen, setDropDownOpen] = useState(false)
 
-			const [dropdownOpen, setDropDownOpen] = useState(false)
-			 const logout = () => {
-  		    AuthService.logout();
-
-   		history.push('/admin-login');
+		const logout = () => {
+  		AuthService.logout();
+        if(currentUser.user.role === 'admin')
+   		{
+            history.push('/admin-login');
+        }
+        else{
+             history.push('/');
+        }
 }
 
 	return (

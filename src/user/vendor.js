@@ -17,7 +17,7 @@ function Vendor() {
   }, [])
 
 	return (
-		<div className="lg:w-2/3 lg:mx-auto  md:px-16 px-0 mt-12  flex flex-col">
+		<div className="lg:w-2/3 lg:mx-auto mt-12  flex flex-col">
      <ul className=" flex  flex-wrap  py-1 text-gray-500 text-sm lg:text-base space-x-1"
     >
       <li className="py-4">

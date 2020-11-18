@@ -8,7 +8,7 @@ import PayoutRequest from './payoutRequest'
 import { BrowserRouter, Route, Link,Switch } from "react-router-dom";
 import AddRequest from './addRequest'
 import NotFound from '../components/notFound'
-import PublicRoute from '../utils/PublicRoute'
+import PublicRoute from '../services/PublicRoute'
 import AdminLogin from '../admin/adminLogin'
 
 function Routes() {

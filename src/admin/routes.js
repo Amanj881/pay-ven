@@ -10,7 +10,7 @@ import Kyc from './kyc'
 import Por from './por'
 import PayIn from './payIn'
 import AddStaff from './addStaff'
-import PrivateRoute from '../utils/PrivateRoute'
+import PrivateRoute from '../services/PrivateRoute'
 
 function Routes() {
 	return (
