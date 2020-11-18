@@ -53,7 +53,7 @@ const Schema = {
 
 	return (
 
-<div className="lg:mx-auto  md:px-16 py-6">
+<div className="w-4/5 mx-auto">
    <ul className=" flex  flex-wrap  py-1 text-gray-500 text-sm lg:text-base space-x-1"
     >
       <li className="py-4">

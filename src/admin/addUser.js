@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import TextInput from "../components/TextInput/TextInput";
 import TextPassword from "../components/Password/Password";
 import Loader from '../components/Loader/Loader.js'
-// import axios from "axios";
+import swal from 'sweetalert'
 import { useHistory } from "react-router-dom";
 import axios from '../http-common';
 
@@ -92,8 +92,13 @@ function AddUser() {
       setErrors(errors);
 
      axios.post('admin/addUser',payload).then((res)=>{
-      // console.log("response",response.data);
-      console.log("res",res);
+      swal({
+          title: "Done!",
+          text: "user is added to database",
+          icon: "success",
+          timer: 2000,
+          button: false
+        })
 
       history.push("/user-organisation")
     }).catch(
@@ -104,11 +109,11 @@ function AddUser() {
   
  }
 	return (
-    <>
+    <div className="h-12">
     {loader ? 
 
       <Loader className="py-32"/> : 
-		<div className="lg:w-1/3 lg:mx-auto w-full   flex flex-col">
+		<div className="w-1/2 lg:mx-auto flex flex-col">
     <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
             Add User
@@ -212,7 +217,7 @@ function AddUser() {
             </div>
       </form>
 		</div>}
-    </>
+    </div>
 	)
 }
 

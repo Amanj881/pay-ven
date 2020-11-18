@@ -39,20 +39,14 @@ function Index() {
       setErrors(err);
          setLoading(true);
 
-     AuthService.userLogin(email, password).then(
+     await AuthService.userLogin(email, password).then(
         () => {
           history.push("/user-vendors");
           window.location.reload();
-        })
-	// 	await axios.post('/user/login',payload).
-	// 	then((res)=>{
-	// 		console.log(res);
- //      setToken(res.data.access_token,res.data.user.email);
+        }).catch(e => {
+      setErrors(e)
+    });
 
-	// history.push("/user-dashboard")
-	// 	}).catch(e => {
- //      setErrors(e)
- //    });
 }
 	return (
 		<div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -94,8 +88,7 @@ function Index() {
                 
               <div className="mt-6">
                 <span className="block w-full rounded-md shadow-sm">
-                  <Button type="submit" width="full" disable={loading}
-					loading={loading}>
+                  <Button type="submit" width="full" >
                     Sign in
                   </Button>
                 </span>

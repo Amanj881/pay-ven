@@ -33,7 +33,7 @@ function Dashboard() {
 
   ]
 	return (
-		<div>
+		<div className="w-1/6">
       <Dash options={options} DashName="Admin Dashboard"/> 
     </div>
 	)

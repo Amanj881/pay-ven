@@ -4,7 +4,6 @@ import TextPassword from "../components/Password/Password";
 import axios from '../http-common';
 import Button from "../components/Button/Button";
 import { useHistory } from "react-router-dom";
-// import { setAdminToken } from '../utils/Common';
 import AuthService from "../services/auth-service";
 
 function AdminLogin() {
@@ -44,29 +43,11 @@ const [loggedIn, setLoggedIn] = useState(false)
         () => {
           history.push("/user-organisation");
           window.location.reload();
-        })
-    // axios.post('login',payload).then((res)=>{
-    //   // console.log("response",response.data);
-    //   console.log("res",res);
-    //   setAdminToken(res.data.access_token,res.data.user.email);
-    //   setLoggedIn(!loggedIn);
-
-    //   history.push("/user-organisation")
-    // }).catch(
-    //     error => { console.log(error.response) }
-    // );
+        }).catch(
+        error => { console.log(error.response.data.message) }
+    );
 
 
-  
-
-  //   axios.post('/admin/login',payload).
-  //  then((res)=>{
-  //     setToken(res.data.access_token);
-
-  // history.push("/admin-dashboard")
-  //  }).catch(e => {
-  //     setErrors(e)
-  //   });
 }
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -92,13 +73,13 @@ const [loggedIn, setLoggedIn] = useState(false)
               <div className="mt-6">
                 <TextPassword
                   id="password"
-          labelText="Password"
-          onChange={e => setPassword(e.target.value)}
-          value={password}
-          name="password"
-          autoComplete="new-password"
+                labelText="Password"
+                onChange={e => setPassword(e.target.value)}
+                value={password}
+                name="password"
+                autoComplete="new-password"
                 invalid={errors.password}
-                    invalidText={errors.password}
+                invalidText={errors.password}
 
                 />
               </div>

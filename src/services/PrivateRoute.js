@@ -8,9 +8,9 @@ import Header from '../components/header'
 function PrivateRoute({ component: Component, ...rest }) {
 	 const currentUser = AuthService.getCurrentUser()
   return (
-  	<div className="flex">
+  	<div className="flex ">
       <Dashboard />
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full">
       <Header/>
     <Route
       {...rest}

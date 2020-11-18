@@ -21,7 +21,7 @@ function Header() {
 
 	return (
 
-                    <div className="flex flex-col ">
+                    <div className="flex flex-col">
 
 	     <header className="flex justify-between items-center py-4 px-6 bg-white border-b-4 border-indigo-600">
                 <div className="flex items-center">
@@ -42,8 +42,7 @@ function Header() {
                             </svg>
                         </span>
     
-                        <input className="form-input w-32 sm:w-64 rounded-md pl-10 pr-4 focus:border-indigo-600" type="text"
-                            placeholder="Search"/>
+                      
                     </div>
                 </div>
     

@@ -1,7 +1,7 @@
 import React,{Suspense,lazy} from 'react'
 
 import './App.css';
-import { HashRouter, Route, Link,Switch } from "react-router-dom";
+import { BrowserRouter, Route, Link,Switch } from "react-router-dom";
 import Login from './user/index'
 import Terms from './user/t&c'
 import Dash from './user/userDashboard'
@@ -25,23 +25,22 @@ import PrivateRoute from './services/PrivateRoute'
 
 function App() {
   return (
-    <HashRouter basename={'/reactest/'} >
+    <BrowserRouter basename={'/reactest/'} >
       <Switch>
-        <Route path="/admin-login" exact  component={AdminLogin}/>
-        <PrivateRoute path="/user-organisation" exact component={UserOrganisation} />
-        <PrivateRoute path="/staff"exact  component={Staff} />
-        <PrivateRoute path="/vendors" exact component={AdminVendor} />
-        <PrivateRoute path="/add-user"exact  component={AddUser} />
-        <PrivateRoute path="/kyc" exact component={Kyc} />
-        <PrivateRoute path="/pay-out-request"exact  component={Por} />
-        <PrivateRoute path="/pay-in" exact component={PayIn} />
-        <PrivateRoute path="/add-staff"exact  component={AddStaff} />
-        <PrivateRoute path="/admin-dashboard" exact component={Dashboard} />
+        <Route path="/admin-login"  component={AdminLogin}/>
+        <PrivateRoute path="/user-organisation" component={UserOrganisation} />
+        <PrivateRoute path="/staff" component={Staff} />
+        <PrivateRoute path="/vendors" component={AdminVendor} />
+        <PrivateRoute path="/add-user" component={AddUser} />
+        <PrivateRoute path="/kyc" component={Kyc} />
+        <PrivateRoute path="/pay-out-request" component={Por} />
+        <PrivateRoute path="/pay-in" component={PayIn} />
+        <PrivateRoute path="/add-staff" component={AddStaff} />
+        <PrivateRoute path="/admin-dashboard" component={Dashboard} />
         </Switch>
         <Switch>
                 <Route path="/" exact component={Login} />
 
-    		<PublicRoute path="/vendors" exact component={Vendor} />
     		<PublicRoute path="/user-dashboard" exact component={Dash} />
     		<PublicRoute path="user/add-vendor" exact component={AddVendor} />
     		<PublicRoute path="/" exact component={Vendor} />
@@ -51,7 +50,7 @@ function App() {
             <PublicRoute path="/user-vendors" component={Vendor} />
 
       </Switch>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
