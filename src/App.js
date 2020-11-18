@@ -1,7 +1,7 @@
 import React,{Suspense,lazy} from 'react'
 
 import './App.css';
-import { BrowserRouter, Route, Link,Switch } from "react-router-dom";
+import { HashRouter, Route, Link,Switch } from "react-router-dom";
 import Login from './user/index'
 import Terms from './user/t&c'
 import Dash from './user/userDashboard'
@@ -25,7 +25,7 @@ import PrivateRoute from './services/PrivateRoute'
 
 function App() {
   return (
-    <BrowserRouter basename={'/reactest/'} >
+    <HashRouter basename={'/reactest/'} >
       <Switch>
         <Route path="/admin-login" exact  component={AdminLogin}/>
         <PrivateRoute path="/user-organisation" exact component={UserOrganisation} />
@@ -51,7 +51,7 @@ function App() {
             <PublicRoute path="/user-vendors" component={Vendor} />
 
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
