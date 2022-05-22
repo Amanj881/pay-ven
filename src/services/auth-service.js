@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-const API_URL = "http://localhost:8000/api/admin/";
-const API_USERURL = "http://localhost:8000/api/user/";
+const API_URL = "https://bestowinfotech.com/payVendor-backend/public/api/admin/";
+const API_USERURL = "https://bestowinfotech.com/payVendor-backend/public/api/user/";
 
 class AuthService {
   login(email,password) {

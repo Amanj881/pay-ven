@@ -12,7 +12,7 @@ import AddRequest from './user/addRequest'
 import NotFound from './components/notFound'
 import PublicRoute from './services/PublicRoute'
 import AdminLogin from './admin/adminLogin'
-import Dashboard from './admin/dashboard'
+import AdminDashboard from './admin/adminDashboard'
 import UserOrganisation from './admin/userOrg'
 import Staff from './admin/staff'
 import AdminVendor from './admin/vendor'
@@ -25,7 +25,7 @@ import PrivateRoute from './services/PrivateRoute'
 
 function App() {
   return (
-    <BrowserRouter basename={'/reactest/'} >
+    <BrowserRouter basename={'/reactest'} >
       <Switch>
         <Route path="/admin-login"  component={AdminLogin}/>
         <PrivateRoute path="/user-organisation" component={UserOrganisation} />
@@ -36,7 +36,7 @@ function App() {
         <PrivateRoute path="/pay-out-request" component={Por} />
         <PrivateRoute path="/pay-in" component={PayIn} />
         <PrivateRoute path="/add-staff" component={AddStaff} />
-        <PrivateRoute path="/admin-dashboard" component={Dashboard} />
+        <PrivateRoute path="/admin-dashboard" component={AdminDashboard} />
         </Switch>
         <Switch>
                 <Route path="/" exact component={Login} />

@@ -69,7 +69,7 @@ function AddStaff() {
   }
 
 	return (
-		<div class="lg:w-1/3 lg:mx-auto w-full  mt-12  flex flex-col">
+		<div className="lg:w-1/3 lg:mx-auto w-full  mt-12  flex flex-col">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
             Add User

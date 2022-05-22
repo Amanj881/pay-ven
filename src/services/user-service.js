@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
-const API_URL = 'http://localhost:8000/api/';
+const API_URL = 'https://bestowinfotech.com/payVendor-backend/public/api/';
 
 class UserService {
  
